@@ -41,19 +41,12 @@ public class ExternalUtil
 	 */
 	static public function getHref():String
 	{
-		if (ExternalInterface.available)
+		if(_href == "")
 		{
-			if(_href == "")
+			if(ExternalInterface.available)
 			{
-				if(ExternalInterface.available)
-				{
-					_href = ExternalInterface.call(
-						"function getHref(){return document.URL;}");
-				}
-				else
-				{
-					_href = "";
-				}
+				_href = ExternalInterface.call(
+					"function getHref(){return document.URL;}");
 			}
 		}
 		return _href;
